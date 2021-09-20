@@ -9,6 +9,16 @@ package FajarJmartPK;
         }
         
         public static void main(String[] args){   
-            
         }
-    }
+            
+        public Product createProduct(){
+            return NULL;
+        }
+        
+        public Coupon createCoupon(){
+            return NULL;
+        }
+        
+        public ShipmentDuration createShipmentDuration(){
+            return NULL;
+        }
