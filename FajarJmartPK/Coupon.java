@@ -2,8 +2,16 @@ package FajarJmartPK;
 
 public class Coupon
 {
+    public String name;
+    public int code;
+    public double cut;
+    public Type type;
+    public double minimum;
+    private boolean used;
+
     public enum Type{
-    DISCOUNT, REBATE;
+    DISCOUNT,
+    REBATE
     }
 
     public boolean isUsed(){
@@ -11,7 +19,7 @@ public class Coupon
     }
     
     public boolean canApply(PriceTag priceTag){
-        if(priceTag.getAdjustedPrice()>=minimum){
+        if((priceTag.getAdjustedPrice()>=minimum)&&(used == false)){
             return true;
         }
         else{
@@ -20,31 +28,19 @@ public class Coupon
     }
     
     public double apply(PriceTag priceTag){
-        this.used = true;
-        return (priceTag.getAdjustedPrice()-cut);
+        used = true;
+        if(type == Type.DISCOUNT){
+            return (priceTag.getAdjustedPrice()*(100-cut)/100);
+        }
+        else{
+            return (priceTag.getAdjustedPrice()-cut);
+        }
     }
-    
-    public String name;
-    public int code;
-    public double cut;
-    public Type type;
-    public double minimum;
-    private boolean used;
     
     public Coupon(String name, int code, Type type, double cut, double minimum){
         this.name = name;
         this.code = code;
         this.type = type;
-        
-        switch(type){
-            case REBATE:
-            //    if(PriceTag.getAdjustedPrice()>=cut) return 0.0;
-            //        return getAdjustedPrice() - cut;
-                    break;
-            case DISCOUNT:
-                break;
-        }
-        
         this.cut = cut;
         this.minimum = minimum;
         this.used = false;

@@ -1,14 +1,27 @@
 package FajarJmartPK;
-import java.util.BitSet;
 
 public class ShipmentDuration
 {
-    public ShipmentDuration INSTANT;
-    public ShipmentDuration SAME_DAY;
-    public ShipmentDuration NEXT_DAY;
-    public ShipmentDuration REGULER;
-    public ShipmentDuration KARGO;
-    private int bit;
+    public static final ShipmentDuration INSTANT = new ShipmentDuration((byte)(1<<0));
+    public static final ShipmentDuration SAME_DAY = new ShipmentDuration((byte)(1<<1));
+    public static final ShipmentDuration NEXT_DAY = new ShipmentDuration((byte)(1<<2));
+    public static final ShipmentDuration REGULER = new ShipmentDuration((byte)(1<<3));
+    public static final ShipmentDuration KARGO = new ShipmentDuration((byte)(1<<4));
+
+    private final byte bit;
     
-    BitSet b1 = new BitSet();
+    private ShipmentDuration(byte bit){
+        this.bit = bit;
+    }
+
+    public ShipmentDuration(ShipmentDuration... args){
+        byte flags = 0;
+        for(byte i=0; i<args.length; i++){
+            flags |= args[i].bit;     
+        }
+        bit = flags;
+    }
+    public boolean isDuration(ShipmentDuration reference){
+        return (bit&reference.bit)!=0;
+    }
 }
