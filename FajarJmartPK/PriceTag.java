@@ -1,7 +1,5 @@
 package FajarJmartPK;
 
-import jdk.javadoc.internal.doclets.toolkit.resources.doclets;
-
 public class PriceTag
 {
     public static final double COMMISSION_MULTIPLIER = 0.05;
