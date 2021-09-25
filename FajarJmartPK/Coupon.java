@@ -15,7 +15,16 @@ public class Coupon
         DISCOUNT,
         REBATE
     }
-
+    
+    public Coupon(String name, int code, Type type, double cut, double minimum){
+        this.name = name;
+        this.code = code;
+        this.type = type;
+        this.cut = cut;
+        this.minimum = minimum;
+        this.used = false;
+    }
+    
     public boolean isUsed(){
         return used;
     }
@@ -39,12 +48,7 @@ public class Coupon
         }
     }
 
-    public Coupon(String name, int code, Type type, double cut, double minimum){
-        this.name = name;
-        this.code = code;
-        this.type = type;
-        this.cut = cut;
-        this.minimum = minimum;
-        this.used = false;
+    public boolean read(String name){
+        return false;
     }
 }
