@@ -1,35 +1,30 @@
 package FajarJmartPK;
 
-
-/**
- * Write a description of class Complaint here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Complaint
+public class Complaint extends Transaction implements FileParser
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    public int paymentId;
+    public String desc;
 
-    /**
-     * Constructor for objects of class Complaint
-     */
-    public Complaint()
-    {
-        // initialise instance variables
-        x = 0;
+    public Complaint(int id, Payment payment, String desc) {
+        super(id);
+        this.payment = payment;
+        this.desc = desc;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+//    public Complaint(int id, int buyerId, int storeId
+//    , int paymentId, String desc){
+
+//    }
+    
+    public boolean read(String name){
+        return false;
     }
+
+    public Transaction perform(){
+        return null;
+    }
+
+//    boolean read(String name){
+//        return false;
+//    }
 }
