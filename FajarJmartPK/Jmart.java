@@ -13,7 +13,7 @@ public class Jmart
             return new Coupon("My coupon", 486, Coupon.Type.DISCOUNT, 1000, 5000);
     }
     
-    public static ShipmentDuration createShipmentDuration(){
-        return new ShipmentDuration(ShipmentDuration.INSTANT, ShipmentDuration.KARGO);
-    }
+    //  public static ShipmentDuration createShipmentDuration(){
+    //      return new ShipmentDuration(ShipmentDuration.INSTANT, ShipmentDuration.KARGO);
+    // }
 }
