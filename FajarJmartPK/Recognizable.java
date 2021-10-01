@@ -4,15 +4,20 @@ public class Recognizable
 {  
     public final int id;
     
-    public Recognizable(int id){
+    protected Recognizable(int id){
         this.id = id;
     }
 
     public boolean equals(Object other){
-        return (other instanceof Recognizable);//&&(id.other == id);
+        if(other instanceof Recognizable){
+            return equals(other);
+        }
+        else{
+            return false;
+        }
     }
 
     public boolean equals(Recognizable other){
-        return true;
+        return this.id == other.id;
     }
 }

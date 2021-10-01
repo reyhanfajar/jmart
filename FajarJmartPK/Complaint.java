@@ -1,28 +1,22 @@
 package FajarJmartPK;
 
-public class Complaint extends Transaction implements FileParser
+public class Complaint extends Recognizable implements FileParser
 {
-    public int paymentId;
+    public String date = "Minggu";
     public String desc;
 
-    public Complaint(int id, Payment payment, String desc) {
-        super(id, payment.buyerId);
+    public Complaint(int id, String desc) {
+        super(id);
+        this.desc = desc;
     }
-
-//    public Complaint(int id, int buyerId, int storeId
-//    , int paymentId, String desc){
-
-//    }
     
+    @Override
     public boolean read(String name){
-        return false;
+        return true;
     }
 
-    public Transaction perform(){
+    @Override
+    public Object write(){
         return null;
     }
-
-//    boolean read(String name){
-//        return false;
-//    }
 }

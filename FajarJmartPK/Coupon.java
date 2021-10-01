@@ -1,7 +1,5 @@
 package FajarJmartPK;
 
-import FajarJmartPK.PriceTag;
-
 public class Coupon
 {
     public final String name;

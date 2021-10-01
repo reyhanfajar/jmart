@@ -1,8 +1,8 @@
 package FajarJmartPK;
 
-public abstract class Transaction extends Recognizable{
+public interface Transactor{
 
-    public enum Rating{
+/*    public enum Rating{
         NONE,
         BAD,
         NEUTRAL,
@@ -25,8 +25,7 @@ public abstract class Transaction extends Recognizable{
         this.buyerId = buyer.id;
         this.storeId = store.id;
     }
-    
-    public abstract boolean validate();
-    
-    public abstract Transaction perform();
+*/    
+    boolean validate();
+    Invoice perform();
 }
