@@ -1,4 +1,4 @@
-package FajarJmartPK;
+ 
 
 public class Account extends Recognizable implements FileParser{
 

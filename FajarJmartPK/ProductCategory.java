@@ -1,4 +1,4 @@
-package FajarJmartPK;
+ 
 
 public enum ProductCategory
 {

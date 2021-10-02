@@ -1,4 +1,4 @@
-package FajarJmartPK;
+
 
 public class Jmart
 {
@@ -6,11 +6,13 @@ public class Jmart
     }
 
     public static Product createProduct(){
-        return new Product(1, 123, "SWORD", 5000, false, null, ProductCategory.MISCELLANEOUS, null);
+        //return new Product(1, 123, "SWORD", 5000, false, null, ProductCategory.MISCELLANEOUS, null);
+        return null;
     }
 
     public static Coupon createCoupon(){
-            return new Coupon("My coupon", 486, Coupon.Type.DISCOUNT, 1000, 5000);
+        //return new Coupon("My coupon", 486, Coupon.Type.DISCOUNT, 1000, 5000);
+        return null;
     }
     
     //public static ShipmentDuration createShipmentDuration(){

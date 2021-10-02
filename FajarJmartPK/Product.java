@@ -1,6 +1,4 @@
-package FajarJmartPK;
-
-import FajarJmartPK.Shipment.MultiDuration;
+ 
 
 public class Product extends Recognizable implements FileParser
 {

@@ -1,8 +1,13 @@
-package FajarJmartPK;
+ 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Invoice extends Recognizable implements FileParser{
 
-    public String date = "Selasa";
+    Date myDate = new Date();
+    SimpleDateFormat mdyFormat = new SimpleDateFormat("MM-dd-yyyy");
+    public String date = mdyFormat.format(myDate);
+
     public int buyerId;
     public int productId;
     public int complaintId;

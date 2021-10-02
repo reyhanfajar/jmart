@@ -1,4 +1,4 @@
-package FajarJmartPK;
+
 
 public interface FileParser
 {

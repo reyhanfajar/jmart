@@ -1,4 +1,4 @@
-package FajarJmartPK;
+ 
 
 public class Payment extends Invoice implements Transactor
 {

@@ -1,4 +1,5 @@
-package FajarJmartPK;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Shipment implements FileParser{
     public String address;
@@ -28,6 +29,11 @@ public class Shipment implements FileParser{
     }
     
     public static class Duration{
+        Date myDate = new Date();
+        SimpleDateFormat dMdyFormat = new SimpleDateFormat("DDD-MMMM-dd-yyyy");
+        String dateChange = dMdyFormat.format(myDate);  
+        //public static final ESTIMATION_FORMAT = dateChange;
+
         public static final Duration INSTANT = new Duration((byte) (1<<0));
         public static final Duration SAME_DAY = new Duration((byte) (1<<1));
         public static final Duration NEXT_DAY = new Duration((byte) (1<<2));
@@ -39,7 +45,23 @@ public class Shipment implements FileParser{
         private Duration(byte bit){
             this.bit = bit;
         }
-    }
+
+        public String getEstimatedArrival(Date reference){
+            //if((bit&reference.bit)==0||1){
+            //    return dateChange;
+            //}
+            //else if((bit&reference.bit)==2){
+            //    return null;
+            //else if((bit&reference.bit)==3){
+            //    return null;
+            //}
+            //else if((bit&reference.bit)==4){
+            //
+            //}
+            return null;
+            }
+        }
+    
     
 
     public Shipment(String address, int shipmentCost, Duration duration, String receipt){
