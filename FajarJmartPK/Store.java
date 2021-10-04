@@ -1,9 +1,11 @@
+package FajarJmartPK;
+
 import java.util.regex.Pattern;
 
 public class Store extends Recognizable implements FileParser{
 
-    public static String REGEX_NAME;
-    public static String REGEX_PHONE;
+    public static String REGEX_NAME = "^\\w{4,20}$";
+    public static String REGEX_PHONE = "^[0-9]{9,12}$";
     public String name;
     public String address;
     public String phoneNumber;
@@ -23,10 +25,8 @@ public class Store extends Recognizable implements FileParser{
     }
 
     public boolean validate(){
-        String regexName = "^[a-zA-Z]{4,20}$";
-        String regexPhone = "^[0-9]{9,12}$";
-        Pattern pattern = Pattern.compile(regexName);
-        Pattern pattern2 = Pattern.compile(regexPhone);
+        Pattern pattern = Pattern.compile(REGEX_PHONE);
+        Pattern pattern2 = Pattern.compile(REGEX_NAME);
         boolean matches = pattern.matcher(name).matches();
         boolean matches2 = pattern2.matcher(phoneNumber).matches();
         if((matches == true)&&(matches2 == true)){

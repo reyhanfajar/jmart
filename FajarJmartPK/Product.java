@@ -1,4 +1,5 @@
- 
+package FajarJmartPK;
+
 
 public class Product extends Recognizable implements FileParser
 {

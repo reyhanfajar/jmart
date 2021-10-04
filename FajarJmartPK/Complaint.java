@@ -1,21 +1,17 @@
-
+package FajarJmartPK;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Complaint extends Recognizable implements FileParser
 {
-    
-   // public String date;
-    Date myDate = new Date();
-    SimpleDateFormat mdyFormat = new SimpleDateFormat("MM-dd-yyyy");
-    public String date = mdyFormat.format(myDate);
-    
+    public Date date;   
     public String desc;
 
     public Complaint(int id, String desc) {
         super(id);
         this.desc = desc;
+        this.date = new Date();
     }
     
     @Override
@@ -26,5 +22,9 @@ public class Complaint extends Recognizable implements FileParser
     @Override
     public Object write(){
         return null;
+    }
+
+    public String toString(){
+        return "date=" + this.date + ", desc='" + this.desc +"'";
     }
 }

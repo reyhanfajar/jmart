@@ -1,8 +1,11 @@
+package FajarJmartPK;
+
  
+import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class Invoice extends Recognizable implements FileParser{
+public abstract class Invoice extends Recognizable implements FileParser{
 
     Date myDate = new Date();
     SimpleDateFormat mdyFormat = new SimpleDateFormat("MM-dd-yyyy");
@@ -13,8 +16,9 @@ public class Invoice extends Recognizable implements FileParser{
     public int complaintId;
     public Rating rating = Rating.NONE;
     public Status status = Status.WAITING_CONFIRMATION;
+    public ArrayList<Record> history;
     
-    public enum Status{
+    public static enum Status{
         WAITING_CONFIRMATION,
         CANCELLED,
         ON_PROGRESS,
@@ -35,6 +39,12 @@ public class Invoice extends Recognizable implements FileParser{
         super(id);
         this.buyerId = buyerId;
         this.productId = productId;
+    }
+
+    public class Record{
+        public Date date;
+        public String message;
+        public Status status;
     }
 
     public double getTotalPay(){
