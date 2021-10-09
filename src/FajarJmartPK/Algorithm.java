@@ -33,15 +33,18 @@ public class Algorithm {
 
     //exists
     public static <T> boolean exists(T[] array, T value){
-        return false;
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return exists(it, value);
     }
 
     public static <T> boolean exists(Iterable<T> iterable, T value){
-        return false;
+        final Iterator<T> it = iterable.iterator();
+        return exists(it, value);
     }
 
     public static <T> boolean exists(Iterator<T> iterator, T value){
-        return false;
+        final Predicate<T> pred = value::equals;
+        return exists(iterator, pred);
     }
 
     public static <T> boolean exists(T[] array, Predicate<T> pred){
@@ -58,15 +61,18 @@ public class Algorithm {
 
     //find
     public static <T> T find(T[] array, T value){
-        return null;
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return find(it, value);
     }
 
     public static <T> T find(Iterable<T> iterable, T value){
-        return null;
+        final Iterator<T> it = iterable.iterator();
+        return find(it, value);
     }
 
     public static <T> T find(Iterator<T> iterator, T value){
-        return null;
+        final Predicate<T> pred = value::equals;
+        return find(iterator, pred);
     }
 
     public static <T> T find(T[] array, Predicate<T> pred){
