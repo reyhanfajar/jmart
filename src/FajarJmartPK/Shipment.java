@@ -40,7 +40,7 @@ public class Shipment implements FileParser{
         public static final Duration KARGO = new Duration((byte) (1<<4));
         
         public byte bit;
-
+        
         private Duration(byte bit){
             this.bit = bit;
         }

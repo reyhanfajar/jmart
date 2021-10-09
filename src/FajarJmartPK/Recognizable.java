@@ -1,13 +1,15 @@
 package FajarJmartPK;
 
- 
-
-public class Recognizable
-{  
+public class Recognizable implements Comparable<Recognizable> {
     public final int id;
     
     protected Recognizable(int id){
         this.id = id;
+    }
+
+    @Override
+    public int compareTo(Recognizable other) {
+        return Integer.compare(this.id, other.id);
     }
 
     public boolean equals(Object other){
@@ -21,5 +23,13 @@ public class Recognizable
 
     public boolean equals(Recognizable other){
         return this.id == other.id;
+    }
+
+    public static int setClosingId(Class<Recognizable>clazz, int id){
+        return setClosingId(clazz, id);
+    }
+
+    public static <T> int getClosingId(Class <T>clazz){
+        return getClosingId(clazz);
     }
 }
