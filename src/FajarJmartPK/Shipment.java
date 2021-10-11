@@ -4,63 +4,44 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
-public class Shipment implements FileParser{
+public class Shipment{
+
+    public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("E MMMMM dd yyyy");
+
+    public static final Plan INSTANT = new Plan((byte) (1<<0));
+    public static final Plan SAME_DAY = new Plan((byte) (1<<1));
+    public static final Plan NEXT_DAY = new Plan((byte) (1<<2));
+    public static final Plan REGULER = new Plan((byte) (1<<3));
+    public static final Plan KARGO = new Plan((byte) (1<<4));
+
     public String address;
-    public int shipmentCost;
-    public Duration duration;
+    public int cost;
+    public byte plan;
     public String receipt;
-    
-    public class MultiDuration{
-        public byte bit;
-    
-        public MultiDuration(Duration... args){
-            byte flags=0;
-                for(byte i=0; i<args.length; i++){
-                    flags|=args[i].bit;
-                }
-            this.bit = flags;
-        }
 
-        public boolean isDuration(Duration reference){
-            if((bit&reference.bit)!=0){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
+    public Shipment(String address, int cost, byte plan, String receipt){
+        this.address = address;
+        this.cost = cost;
+        this.plan = plan;
+        this.receipt = receipt;
     }
-    
-    public static class Duration{
-        public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("E MMMMM dd yyyy");
-        public static final Duration INSTANT = new Duration((byte) (1<<0));
-        public static final Duration SAME_DAY = new Duration((byte) (1<<1));
-        public static final Duration NEXT_DAY = new Duration((byte) (1<<2));
-        public static final Duration REGULER = new Duration((byte) (1<<3));
-        public static final Duration KARGO = new Duration((byte) (1<<4));
-        
-        public byte bit;
-        
-        private Duration(byte bit){
-            this.bit = bit;
-        }
 
-        public String getEstimatedArrival(Date reference){
+    public String getEstimatedArrival(Date reference){
         Calendar calendar = Calendar.getInstance();
-            if(this.bit==1<<0|| this.bit==1<<1){
+            if(this.plan==1<<0|| this.plan==1<<1){
                 return ESTIMATION_FORMAT.format(reference.getTime());
             }
-            else if(this.bit==1<<2){
+            else if(this.plan==1<<2){
                 calendar.setTime(reference);
                 calendar.add(Calendar.DATE, 1);
                 return ESTIMATION_FORMAT.format(calendar);
             }
-            else if(this.bit==1<<3){
+            else if(this.plan==1<<3){
                 calendar.setTime(reference);
                 calendar.add(Calendar.DATE, 2);
                 return ESTIMATION_FORMAT.format(calendar);
             }
-            else if(this.bit==1<<4){
+            else if(this.plan==1<<4){
                 calendar.setTime(reference);
                 calendar.add(Calendar.DATE, 5);
                 return ESTIMATION_FORMAT.format(calendar);
@@ -68,26 +49,32 @@ public class Shipment implements FileParser{
             else{
                 return null;
             }
+    }
+
+    public boolean isDuration(Plan reference){
+        if((plan&reference.bit)!=0){
+            return true;
+        }
+        else{
+            return false;
         }
     }
-    
-    
 
-    public Shipment(String address, int shipmentCost, Duration duration, String receipt){
-        this.address = address;
-        this.shipmentCost = shipmentCost;
-        this.duration = duration;
-        this.receipt = receipt;
-    }
-    
-    @Override
-    public boolean read(String name){
-        throw new UnsupportedOperationException("Not supported yet.");
+    public static boolean isDuration(byte Object, Plan reference){
+        byte flags=0;
+    //    for(byte i=0; i<args.length; i++){
+    //        flags|=args[i].bit;
+    //    }
+    //    this.bit = flags;
+        return false;
     }
 
-    @Override
-    public Object write(){
-        throw new UnsupportedOperationException("Not supported yet.");
+    public static class Plan{
+        public final byte bit;
+
+        public Plan(byte bit) {
+            this.bit = bit;
+        }
     }
 }
 

@@ -1,10 +1,37 @@
 package FajarJmartPK;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
 public class Algorithm {
     private Algorithm(){}
+
+    public static <T> List<T> collect(T[] array, T value) {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return collect(it, value);
+    }
+
+    public static <T> List<T> collect(Iterable<T> iterable, T value){
+        final Iterator<T> it = iterable.iterator();
+        return collect(it, value);
+    }
+
+    public static <T> List<T> collect(Iterator<T> iterator, T value){
+        final Predicate<T> pred = value::equals;
+        return collect(iterator, (T) pred);
+    }
+
+    //public static <T> List<T> collect(T[] array, Predicate<T> pred) { return 0; }
+
+    //public static <T> List<T> collect(Iterable<T> iterable, Predicate<T> pred){
+    //    return 0;
+    //}
+
+    //public static <T> List<T> collect(Iterator<T> iterator, Predicate<T> pred) {
+    //    return 0;
+    //}
 
     public static <T> int count(T[] array, T value) {
         final Iterator<T> it = Arrays.stream(array).iterator();
@@ -92,7 +119,60 @@ public class Algorithm {
         return null;
     }
 
+    public static <T> T max(T[] array){
+        return null;
+    }
+
+    public static <T> T max(Iterable<T> iterable){
+        return null;
+    }
+
+    public static <T> T max(Iterator<T> iterator){
+        return null;
+    }
+
+    public static <T> T max(T first, T second, Comparator<?super T> comparator) { return null; }
+
+    public static <T> T max(T[] array, Iterable<T> iterable){
+        return null;
+    }
+
+    public static <T> T max(Iterable<T> iterable, Comparator<?super T> comparator){
+        return null;
+    }
+
+    public static <T> T max(Iterator<T> iterator, Comparator<?super T> comparator){
+        return null;
+    }
+
     public static <T> T min(T first, T second){
         return null;
     }
+
+    public static <T> T min(T[] array){
+        return null;
+    }
+
+    public static <T> T min(Iterable<T> iterable){
+        return null;
+    }
+
+    public static <T> T min(Iterator<T> iterator){
+        return null;
+    }
+
+    public static <T> T min(T first, T second, Comparator<?super T> comparator) { return null; }
+
+    public static <T> T min(T[] array, Iterable<T> iterable){
+        return null;
+    }
+
+    public static <T> T min(Iterable<T> iterable, Comparator<?super T> comparator){
+        return null;
+    }
+
+    public static <T> T min(Iterator<T> iterator, Comparator<?super T> comparator){
+        return null;
+    }
+
 }

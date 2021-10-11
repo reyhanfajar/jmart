@@ -1,44 +1,33 @@
 package FajarJmartPK;
 
 
-public class Product extends Recognizable implements FileParser
+public class Product extends Recognizable
 {
 
-    public int storeId;
+    public int accountId;
+    public double discount;
+    public double price;
     public String name;
     public int weight;
     public boolean conditionUsed;
-    public PriceTag priceTag;
     public ProductCategory category;
-    public ProductRating rating;
-    Shipment.MultiDuration multiDuration;
+    public byte shipmentPlans;
 
-    public Product(int id, int storeId, String name, int weight, boolean conditionUsed, PriceTag priceTag,
-    ProductCategory category, Shipment.MultiDuration multiDuration){
-        super(id);
-        this.storeId = storeId;
+    public Product(int accountId, String name, int weight, boolean conditionUsed, double price, double discount,
+    ProductCategory category, byte shipmentPlans){
+        this.accountId = accountId;
         this.name = name;
         this.weight = weight;
         this.conditionUsed = conditionUsed;
-        this.priceTag = priceTag;
+        this.price = price;
+        this.discount = discount;
         this.category = category;
-        this.rating = new ProductRating();
-        this.multiDuration = multiDuration;
-    }
-    
-    @Override
-    public boolean read(String name) {
-        return false;
-    }
-
-    @Override
-    public Object write(){
-        return null;
+        this.shipmentPlans = shipmentPlans;
     }
 
     public String toString(){
-        return "name: " + this.name + "\nweight: " + this.weight + "\nconditionUsed: " 
-        + this.conditionUsed + "\npriceTag: " + this.priceTag + "\nCategory: " + this.category 
-        + "\nRating: " + this.rating + "\nstoreId: " + this.storeId;
+        return "\naccountId: " + this.accountId + "\nname: " + this.name + "\nweight: " + this.weight + "\nconditionUsed: "
+        + "\nprice: " + this.price + "\ndiscount: " + this.discount + "\nconditionUsed: "
+        + this.conditionUsed + "\nCategory: " + this.category;
     }
 }

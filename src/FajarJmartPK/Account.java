@@ -2,7 +2,7 @@ package FajarJmartPK;
 
 import java.util.regex.Pattern;
 
-public class Account extends Recognizable implements FileParser{
+public class Account extends Recognizable{
 
     public static final String REGEX_EMAIL = "^[A-Za-z0-9&_*~[.]{0,1}]+@(.+)$";
     public static final String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
@@ -10,8 +10,7 @@ public class Account extends Recognizable implements FileParser{
     public String email;
     public String password;
     
-    public Account(int id, String name, String email, String password){
-        super(id);
+    public Account(String name, String email, String password){
         this.name = name;
         this.email = email;
         this.password = password;
@@ -23,16 +22,6 @@ public class Account extends Recognizable implements FileParser{
         boolean matches = pattern.matcher(email).matches();
         boolean matches2 = pattern2.matcher(password).matches();
         return (matches) && (matches2);
-    }
-
-    @Override
-    public boolean read(String name){
-        return true;
-    }
-
-    @Override
-    public Object write(){
-        return null;
     }
 
     public String toString(){

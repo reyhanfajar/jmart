@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public abstract class Invoice extends Recognizable implements FileParser{
+public abstract class Invoice extends Recognizable{
 
     Date myDate = new Date();
     SimpleDateFormat mdyFormat = new SimpleDateFormat("MM-dd-yyyy");
@@ -35,8 +35,7 @@ public abstract class Invoice extends Recognizable implements FileParser{
         GOOD;
     }
     
-    protected Invoice(int id, int buyerId, int productId){
-        super(id);
+    protected Invoice(int buyerId, int productId){
         this.buyerId = buyerId;
         this.productId = productId;
     }
@@ -49,15 +48,5 @@ public abstract class Invoice extends Recognizable implements FileParser{
 
     public double getTotalPay(){
         return 0.0;
-    }
-
-    @Override
-    public boolean read(String name) {
-        return false;
-    }
-    
-    @Override
-    public Object write(){
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
