@@ -29,7 +29,7 @@ public class Coupon
         return used;
     }
 
-    public boolean canApply(PriceTag priceTag){
+    /*public boolean canApply(PriceTag priceTag){
         if((priceTag.getAdjustedPrice()>=minimum)&&(used==false)){
             return false;
         }
@@ -46,7 +46,7 @@ public class Coupon
         else{
             return (priceTag.getAdjustedPrice()-cut);
         }
-    }
+    }*/
 
     public boolean read(String name){
         return false;
