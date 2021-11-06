@@ -12,7 +12,16 @@ public class Jmart {
     }
 
     public List<Product> filterByPrice (List<Product> list, double minPrice, double maxPrice){
-        return null;
+        if(maxPrice == 0.0 && minPrice == 0.0){
+            return list;
+        }
+        if (minPrice == 0.0) {
+            minPrice = 0;
+        }
+        if (maxPrice == 0.0) {
+            maxPrice = 0.0;
+        }
+        return list;
     }
 
     public List<Product> read(String filepath) {
@@ -21,7 +30,7 @@ public class Jmart {
 
     public void main(String[] args) {
         try{
-            List<Product> list = read("");
+            List<Product> list = read("/Users/Intel/Documents/Segala siksa duniawi/main/jmart/src");
             List<Product> filtered = filterByPrice(list, 0.0, 20000.0);
             filtered.forEach(product -> System.out.println(product.price));
         }
