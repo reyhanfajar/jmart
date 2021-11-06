@@ -2,18 +2,21 @@ package FajarJmartPK;
 
 import java.util.regex.Pattern;
 
-public class Account extends Recognizable{
+public class Account extends Serializable {
 
     public static final String REGEX_EMAIL = "^[A-Za-z0-9&_*~[.]{0,1}]+@(.+)$";
     public static final String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
     public String name;
     public String email;
     public String password;
+    public Store store;
+    public double balance;
     
-    public Account(String name, String email, String password){
+    public Account(String name, String email, String password, double balance){
         this.name = name;
         this.email = email;
         this.password = password;
+        this.balance = balance;
     }
 
     public boolean validate(){

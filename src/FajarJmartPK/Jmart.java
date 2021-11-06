@@ -6,9 +6,31 @@ import java.io.IOException;
 import java.util.List;
 import com.google.gson.*;
 
-public class Jmart
-{
-    class Country{
+public class Jmart {
+    public List<Product> filterByCategory (List<Product> list, ProductCategory category){
+        return null;
+    }
+
+    public List<Product> filterByPrice (List<Product> list, double minPrice, double maxPrice){
+        return null;
+    }
+
+    public List<Product> read(String filepath) {
+        return null;
+    }
+
+    public void main(String[] args) {
+        try{
+            List<Product> list = read("");
+            List<Product> filtered = filterByPrice(list, 0.0, 20000.0);
+            filtered.forEach(product -> System.out.println(product.price));
+        }
+        catch (Throwable t){
+            t.printStackTrace();
+        }
+    }
+
+    /*    class Country{
         public String name;
         public int population;
         public List<String> listOfStates;
@@ -28,8 +50,8 @@ public class Jmart
         catch (IOException e){
             e.printStackTrace();
         }
-    }
-
+    }*/
+//End of gson tutorial
 
 /*    public static Product createProduct(){
         //return new Product(1, 12456, "SWORD", 3000, false, priceTag, ProductCategory.MISCELLANEOUS, multiDuration);

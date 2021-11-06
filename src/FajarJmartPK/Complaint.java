@@ -1,9 +1,8 @@
 package FajarJmartPK;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Complaint extends Recognizable
+public class Complaint extends Serializable
 {
     public Date date;   
     public String desc;

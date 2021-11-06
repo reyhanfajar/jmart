@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public abstract class Invoice extends Recognizable{
+public abstract class Invoice extends Serializable {
 
     Date myDate = new Date();
     SimpleDateFormat mdyFormat = new SimpleDateFormat("MM-dd-yyyy");
