@@ -8,6 +8,7 @@ import java.util.List;
 public class Algorithm {
     private Algorithm(){}
 
+    //collect
     public static <T> List<T> collect(T[] array, T value) {
         final Iterator<T> it = Arrays.stream(array).iterator();
         return collect(it, value);
@@ -23,16 +24,21 @@ public class Algorithm {
         return collect(iterator, (T) pred);
     }
 
-    //public static <T> List<T> collect(T[] array, Predicate<T> pred) { return 0; }
+    public static <T> List<T> collect(T[] array, Predicate<T> pred) {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return collect(it, pred);
+    }
 
-    //public static <T> List<T> collect(Iterable<T> iterable, Predicate<T> pred){
-    //    return 0;
-    //}
+    public static <T> List<T> collect(Iterable<T> iterable, Predicate<T> pred){
+        final Iterator<T> it = iterable.iterator();
+        return collect(it, pred);
+    }
 
-    //public static <T> List<T> collect(Iterator<T> iterator, Predicate<T> pred) {
-    //    return 0;
-    //}
+    public static <T> List<T> collect(Iterator<T> iterator, Predicate<T> pred) {
+        return collect(iterator, pred);
+    }
 
+    //count
     public static <T> int count(T[] array, T value) {
         final Iterator<T> it = Arrays.stream(array).iterator();
         return count(it, value);
@@ -48,14 +54,18 @@ public class Algorithm {
         return count(iterator, pred);
     }
 
-    public static <T> int count(T[] array, Predicate<T> pred) { return 0; }
+    public static <T> int count(T[] array, Predicate<T> pred) {
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return count(it, pred);
+    }
 
     public static <T> int count(Iterable<T> iterable, Predicate<T> pred){
-        return 0;
+        final Iterator<T> it = iterable.iterator();
+        return count(it, pred);
     }
 
     public static <T> int count(Iterator<T> iterator, Predicate<T> pred) {
-        return 0;
+        return count(iterator, pred);
     }
 
     //exists
@@ -75,15 +85,17 @@ public class Algorithm {
     }
 
     public static <T> boolean exists(T[] array, Predicate<T> pred){
-        return false;
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return exists(it, pred);
     }
 
     public static <T> boolean exists(Iterable<T> iterable, Predicate<T> pred){
-        return false;
+        final Iterator<T> it = iterable.iterator();
+        return exists(it, pred);
     }
 
     public static <T> boolean exists(Iterator<T> iterator, Predicate<T> pred){
-        return false;
+        return exists(iterator, pred);
     }
 
     //find
@@ -103,18 +115,20 @@ public class Algorithm {
     }
 
     public static <T> T find(T[] array, Predicate<T> pred){
-        return null;
+        final Iterator<T> it = Arrays.stream(array).iterator();
+        return find(it, pred);
     }
 
     public static <T> T find(Iterable<T> iterable, Predicate<T> pred){
-        return null;
+        final Iterator<T> it = iterable.iterator();
+        return find(it, pred);
     }
 
     public static <T> T find(Iterator<T> iterator, Predicate<T> pred){
-        return null;
+        return find(iterator, pred);
     }
-
-
+    
+    //max
     public static <T> T max(T first, T second){
         return null;
     }
@@ -161,6 +175,7 @@ public class Algorithm {
         return null;
     }
 
+    //min
     public static <T> T min(T first, T second, Comparator<?super T> comparator) { return null; }
 
     public static <T> T min(T[] array, Iterable<T> iterable){
@@ -174,5 +189,4 @@ public class Algorithm {
     public static <T> T min(Iterator<T> iterator, Comparator<?super T> comparator){
         return null;
     }
-
 }

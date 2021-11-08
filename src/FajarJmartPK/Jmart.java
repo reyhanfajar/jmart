@@ -7,28 +7,32 @@ import java.util.List;
 import com.google.gson.*;
 
 public class Jmart {
-    public List<Product> filterByCategory (List<Product> list, ProductCategory category){
+    public static List<Product> filterByAccountId (List<Product>list, int accountId, int page, int pageSize){
         return null;
     }
 
-    public List<Product> filterByPrice (List<Product> list, double minPrice, double maxPrice){
+    public static List<Product> filterByCategory (List<Product>list, ProductCategory category){
+        return null;
+    }
+
+    public static List<Product> filterByName (List<Product>list, String search, int page, int pageSize){
+        return null;
+    }
+
+    public static List<Product> filterByPrice (List<Product>list, double minPrice, double maxPrice){
         if(maxPrice == 0.0 && minPrice == 0.0){
             return list;
         }
-        if (minPrice == 0.0) {
-            minPrice = 0;
+        else if (minPrice == 0.0) {
+            return list;
         }
-        if (maxPrice == 0.0) {
-            maxPrice = 0.0;
+        else if (maxPrice == 0.0) {
+            return list;
         }
         return list;
     }
 
-    public List<Product> read(String filepath) {
-        return null;
-    }
-
-    public void main(String[] args) {
+    public static void main(String[] args) {
         try{
             List<Product> list = read("/Users/Intel/Documents/Segala siksa duniawi/main/jmart/src");
             List<Product> filtered = filterByPrice(list, 0.0, 20000.0);
@@ -37,8 +41,19 @@ public class Jmart {
         catch (Throwable t){
             t.printStackTrace();
         }
+        filterByAccountId(null, 1,1,2);
+        filterByName(null, "GTX", 2, 4);
     }
 
+    private static List<Product>paginate (List<Product>list, int page, int pageSize, Predicate<Product>pred){
+        //if(Predicate.predicate(Product))
+        return null;
+    }
+
+    public static List<Product>read (String filepath) {
+        List<Product> list = read("/Users/Intel/Documents/Segala siksa duniawi/main/jmart/src");
+        return list;
+    }
     /*    class Country{
         public String name;
         public int population;
