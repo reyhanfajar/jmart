@@ -33,6 +33,21 @@ public class Jmart {
     }
 
     public static void main(String[] args) {
+        try {
+            String filepath = "";
+            JsonTable<Account> tableAccount = new JsonTable<>(Account.class, filepath);
+            tableAccount.add(new Account("Fajar", "fajar@gmail.com", "Waraslah1"));
+            tableAccount.writeJson();
+
+            tableAccount = new JsonTable<>(Account.class, filepath);
+            tableAccount.forEach(account -> System.out.println(account.toString()));
+        }
+        catch (Throwable t) {
+            t.printStackTrace();
+        }
+    }
+
+/*    public static void main(String[] args) {
         try{
             List<Product> list = read("/Users/Intel/Documents/Segala siksa duniawi/main/jmart/src");
             List<Product> filtered = filterByPrice(list, 0.0, 20000.0);
@@ -54,6 +69,7 @@ public class Jmart {
         List<Product> list = read("/Users/Intel/Documents/Segala siksa duniawi/main/jmart/src");
         return list;
     }
+//
     /*    class Country{
         public String name;
         public int population;

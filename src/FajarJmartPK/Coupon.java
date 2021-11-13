@@ -1,7 +1,5 @@
 package FajarJmartPK;
 
- 
-
 public class Coupon
 {
     public final String name;

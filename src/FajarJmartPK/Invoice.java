@@ -9,14 +9,12 @@ public abstract class Invoice extends Serializable {
 
     Date myDate = new Date();
     SimpleDateFormat mdyFormat = new SimpleDateFormat("MM-dd-yyyy");
-    public String date = mdyFormat.format(myDate);
 
     public int buyerId;
-    public int productId;
     public int complaintId;
-    public Rating rating = Rating.NONE;
-    public Status status = Status.WAITING_CONFIRMATION;
-    public ArrayList<Record> history;
+    public final String date = mdyFormat.format(myDate);
+    public int productId;
+    public Rating rating;
     
     public static enum Status{
         WAITING_CONFIRMATION,

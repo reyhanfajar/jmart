@@ -189,4 +189,17 @@ public class Algorithm {
     public static <T> T min(Iterator<T> iterator, Comparator<?super T> comparator){
         return null;
     }
+
+    //paginate
+    public static <T> List<T> paginate (T[] array, int page, int pageSize, Predicate<T> pred){
+        return paginate(array, page, pageSize, pred);
+    }
+
+    public static <T> List<T> paginate (Iterable<T> iterable, int page, int pageSize, Predicate<T> pred){
+        return paginate(iterable, page, pageSize, pred);
+    }
+
+    public static <T> List<T> paginate (Iterator<T> iterator, int page, int pageSize, Predicate<T> pred){
+        return paginate(iterator, page, pageSize, pred);
+    }
 }
