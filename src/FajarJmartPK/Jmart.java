@@ -8,10 +8,10 @@ import java.util.List;
 import com.google.gson.*;
 
 public class Jmart {
-    public static long DELIVERED_LIMIT_MS;
-    public static long ON_DELIVERY_LIMIT_MS;
-    public static long ON_PROGRESS_LIMIT_MS;
-    public static long WAITING_CONF_LIMIT_MS;
+    public static long DELIVERED_LIMIT_MS = 100;
+    public static long ON_DELIVERY_LIMIT_MS = 100;
+    public static long ON_PROGRESS_LIMIT_MS = 100;
+    public static long WAITING_CONF_LIMIT_MS = 100;
 
     public static List<Product> filterByAccountId (List<Product>list, int accountId, int page, int pageSize){
         return null;
@@ -44,8 +44,32 @@ public class Jmart {
         }
         return filList;
     }
-
+    
+    public static boolean paymentTimekeeper(Payment payment){
+        return false;
+    }
     public static void main(String[] args) {
+        try {
+            JsonTable<Payment> table = new JsonTable<>(Payment.class, "/Users/Intel/Documents/Segala siksa duniawi/main/jmart/src");
+            ObjectPoolThread<Payment> paymentPool = new ObjectPoolThread<>("Thread-PP", Jmart::paymentTimekeeper);
+            paymentPool.start();
+            table.forEach(payment -> paymentPool.add(payment));
+            while(paymentPool.size()!=0){
+                paymentPool.exit();
+            }
+            while(paymentPool.isAlive());
+
+            System.out.println("Thread exited successfully");
+            Gson gson = new Gson();
+            table.forEach(payment -> {
+                String history = gson.toJson(payment.history);
+                System.out.println(history);
+            });
+        } catch (Throwable t) {
+            t.printStackTrace();
+        }
+    }
+/*    public static void main(String[] args) {
         try {
             String filepath = "";
             JsonTable<Account> tableAccount = new JsonTable<>(Account.class, filepath);
@@ -58,11 +82,8 @@ public class Jmart {
         catch (Throwable t) {
             t.printStackTrace();
         }
-    }
+    }*/
 
-    public static boolean paymentTimekeeper(Payment payment){
-        return false;
-    }
 /*    public static void main(String[] args) {
         try{
             List<Product> list = read("/Users/Intel/Documents/Segala siksa duniawi/main/jmart/src");
