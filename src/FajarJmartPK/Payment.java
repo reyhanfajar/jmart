@@ -1,6 +1,7 @@
 package FajarJmartPK;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Payment extends Invoice
 {
@@ -15,11 +16,11 @@ public class Payment extends Invoice
     }
 
     public double getTotalPay(Product Product){
-        return price;
+        return 0;
     }
 
     public class Record{
-        public final Date date;
+        public final Date date = new Date();
         public String message;
         public Status status;
 
@@ -27,6 +28,5 @@ public class Payment extends Invoice
             this.status = status;
             this.message = message;
         }
-        
     }
 }

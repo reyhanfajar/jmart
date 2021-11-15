@@ -27,25 +27,6 @@ public class Coupon
         return used;
     }
 
-    /*public boolean canApply(PriceTag priceTag){
-        if((priceTag.getAdjustedPrice()>=minimum)&&(used==false)){
-            return false;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public double apply(PriceTag priceTag){
-        used = true;
-        if(type==Type.DISCOUNT){
-            return (priceTag.getAdjustedPrice()*((100-cut)/100));
-        }
-        else{
-            return (priceTag.getAdjustedPrice()-cut);
-        }
-    }*/
-
     public boolean read(String name){
         return false;
     }

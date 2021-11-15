@@ -129,67 +129,185 @@ public class Algorithm {
     }
     
     //max
-    public static <T> T max(T first, T second){
-        return null;
+    public static <T extends Comparable<? super T>> T max(T first, T  second) {
+        if(first.compareTo(second) >= 0) {
+            return first;
+        }
+        return second;
+    }
+ 
+    public static <T extends Comparable<? super T>> T max(T[] array) {
+        T maximum = array[0];
+
+        for (T each : array) {
+            if(each.compareTo(maximum) > 0)
+            {
+                maximum = each;
+            }
+            else {
+                maximum = maximum;
+            }
+        }
+
+        return maximum;
+ }
+ 
+    public static <T extends Comparable<? super T>> T max(Iterable<T> iterable) {
+        final Iterator <T> each  = iterable.iterator();
+        T maximum = null;
+        while(each.hasNext()) {
+            if (each.next().compareTo(maximum) > 0)
+            {
+                maximum = each.next();
+            }
+        }
+        return maximum;
+    }
+ 
+    public static <T extends Comparable<? super T>> T max(Iterator<T> iterator) {
+        T maximum = null;
+
+        while(iterator.hasNext()) {
+            if(iterator.next().compareTo(maximum) >= 0) {
+            }
+        }
+        return maximum;
+    }
+ 
+    public static <T extends Comparable<? super T>> T max(T first, T second, Comparator<? super T> comparator) {
+        T maximum;
+
+        if(comparator.compare(first, second) >= 0){
+            maximum = first;
+        }
+        else {
+            maximum = second;
+        }
+        return maximum;
+    }
+ 
+    public static <T extends Comparable<? super T>> T max(T[] array, Comparator<? super T> comparator) {
+        T maximum = null;
+        
+        for (T each : array) {
+            if(comparator.compare(each, maximum) >= 0){
+                maximum = each;
+            }
+        }
+        return maximum;
+    }
+ 
+    public static <T extends Comparable<? super T>> T max(Iterable<T> iterable, Comparator<? super T> comparator) {
+        final Iterator <T> each  = iterable.iterator();
+        T maximum = null;
+
+        while(each.hasNext()) {
+            if (comparator.compare(each.next(), maximum) >= 0) {
+            maximum = each.next();
+            }
+        }
+        return maximum;
+    }
+ 
+    public static <T extends Comparable<? super T>> T max(Iterator<T> iterator, Comparator<? super T> comparator) {
+        T maximum = null;
+        while(iterator.hasNext()) {
+            if(comparator.compare(iterator.next(), maximum)>= 0) {
+            }
+        }
+        return maximum;
     }
 
-    public static <T> T max(T[] array){
-        return null;
+    public static <T extends Comparable<? super T>> T min(T  first, T  second) {
+        if(first.compareTo(second) < 0) {
+            return first;
+        }
+        return second;
     }
+    
+    public static <T extends Comparable<? super T>> T min(T[] array) {
+        T minimum = null;
 
-    public static <T> T max(Iterable<T> iterable){
-        return null;
+        for (T each : array) {
+            if(each.compareTo(minimum) < 0) {
+                minimum = each;
+            }
+            else {
+                minimum = minimum;
+            }
+        }
+
+        return minimum;
     }
+    
+    public static <T extends Comparable<? super T>> T min(Iterable<T> iterable) {
+        final Iterator <T> each  = iterable.iterator();
+        T minimum = null;
 
-    public static <T> T max(Iterator<T> iterator){
-        return null;
+        while(each.hasNext()) {
+            if (each.next().compareTo(minimum) < 0) {
+                minimum = each.next();
+            }
+        }
+        return minimum;
     }
+    
+    public static <T extends Comparable<? super T>> T min(Iterator<T> iterator) {
+        T minimum = null;
 
-    public static <T> T max(T first, T second, Comparator<?super T> comparator) { return null; }
-
-    public static <T> T max(T[] array, Iterable<T> iterable){
-        return null;
+        while(iterator.hasNext()) {
+            if(iterator.next().compareTo(minimum) >= 0) {
+            minimum = iterator.next();
+            }
+        }
+        return minimum;
     }
+    
+    public static <T extends Comparable<? super T>> T min(T first, T second, Comparator<? super T> comparator) {
+        T minimum;
 
-    public static <T> T max(Iterable<T> iterable, Comparator<?super T> comparator){
-        return null;
+        if(comparator.compare(first, second) >= 0) {
+            minimum = first;
+        }
+        else {
+            minimum = second;
+        }
+        return minimum;
     }
+    
+    public static <T extends Comparable<? super T>> T min(T[] array, Comparator<? super T> comparator) {
+        T minimum = null;
 
-    public static <T> T max(Iterator<T> iterator, Comparator<?super T> comparator){
-        return null;
+        for (T each : array) {
+            if(comparator.compare(each, minimum) <= 0) {
+                minimum = each;
+            }
+        }
+        return minimum;
     }
-
-    public static <T> T min(T first, T second){
-        return null;
+    
+    public static <T extends Comparable<? super T>> T min(Iterable<T> iterable, Comparator<? super T> comparator) {
+        final Iterator <T> each  = iterable.iterator();
+        T minimum = null;
+        
+        while(each.hasNext()) {
+            if (comparator.compare(each.next(), minimum) <= 0){
+                minimum = each.next();
+            }
+        }
+        return minimum;
     }
+    
+    public static <T extends Comparable<? super T>> T min(Iterator<T> iterator, Comparator<? super T> comparator) {
+        T minimum = null;
 
-    public static <T> T min(T[] array){
-        return null;
+        while(iterator.hasNext()) {
+            if(comparator.compare(iterator.next(), minimum)>= 0) {  
+            }
+        }
+        return minimum;
     }
-
-    public static <T> T min(Iterable<T> iterable){
-        return null;
-    }
-
-    public static <T> T min(Iterator<T> iterator){
-        return null;
-    }
-
-    //min
-    public static <T> T min(T first, T second, Comparator<?super T> comparator) { return null; }
-
-    public static <T> T min(T[] array, Iterable<T> iterable){
-        return null;
-    }
-
-    public static <T> T min(Iterable<T> iterable, Comparator<?super T> comparator){
-        return null;
-    }
-
-    public static <T> T min(Iterator<T> iterator, Comparator<?super T> comparator){
-        return null;
-    }
-
+    
     //paginate
     public static <T> List<T> paginate (T[] array, int page, int pageSize, Predicate<T> pred){
         return paginate(array, page, pageSize, pred);

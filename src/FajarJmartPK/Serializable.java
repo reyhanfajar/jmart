@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Serializable implements Comparable<Serializable> {
     public final int id;
-    private static HashMap<Class<?>, Integer> mapCounter;
+    private static HashMap<Class<?>, Integer> mapCounter = new HashMap<Class<?>, Integer>();;
 
     public int compareTo(Serializable other) {
         return Integer.compare(this.id, other.id);
@@ -32,21 +32,17 @@ public class Serializable implements Comparable<Serializable> {
         return setClosingId(clazz, id);
     }
 
-    protected Serializable(){
-        id = 1;
+    protected Serializable() {
         Integer counter = mapCounter.get(getClass());
-            if(counter == null){
-                counter = 0;
-            }
-            else{
-                mapCounter.put(getClass(), counter + 1);
-            }
+        counter = counter == null ? 0 : counter + 1;
+        mapCounter.put(getClass(), counter);
+        this.id = counter;
     }
 
     public static void main(String[] args) {
-        System.out.println("account id : " + new Account(null, null, null, -1).id);
-        System.out.println("account id : " + new Account(null, null, null, -1).id);
-        System.out.println("account id : " + new Account(null, null, null, -1).id);
+        System.out.println("account id : " + new Account(null, null, null).id);
+        System.out.println("account id : " + new Account(null, null, null).id);
+        System.out.println("account id : " + new Account(null, null, null).id);
 
         System.out.println("account id : " + new Payment(-1, -1, -1, null).id);
         System.out.println("account id : " + new Payment(-1, -1, -1, null).id);

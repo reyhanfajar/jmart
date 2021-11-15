@@ -3,15 +3,17 @@ package FajarJmartPK;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.*;
 
 public class Jmart {
-    public static List<Product> filterByAccountId (List<Product>list, int accountId, int page, int pageSize){
-        return null;
-    }
+    public static long DELIVERED_LIMIT_MS;
+    public static long ON_DELIVERY_LIMIT_MS;
+    public static long ON_PROGRESS_LIMIT_MS;
+    public static long WAITING_CONF_LIMIT_MS;
 
-    public static List<Product> filterByCategory (List<Product>list, ProductCategory category){
+    public static List<Product> filterByAccountId (List<Product>list, int accountId, int page, int pageSize){
         return null;
     }
 
@@ -19,17 +21,28 @@ public class Jmart {
         return null;
     }
 
+    public static List<Product> filterByCategory (List<Product>list, ProductCategory category){
+        List<Product> filList = new ArrayList<Product>();
+        for (Product prod : list) {
+            if (prod.category.equals(category)) {
+                filList.add(prod);
+            }
+        }
+        return filList;
+    }
+
     public static List<Product> filterByPrice (List<Product>list, double minPrice, double maxPrice){
-        if(maxPrice == 0.0 && minPrice == 0.0){
-            return list;
+        List<Product> filList = new ArrayList<Product>();
+        for (Product product : filList) {
+            if(minPrice <= 0.0 && product.price < minPrice) {
+                continue;
+            }
+            if(maxPrice <= 0.0 && product.price > maxPrice) {
+                continue;
+            }
+            filList.add(product);
         }
-        else if (minPrice == 0.0) {
-            return list;
-        }
-        else if (maxPrice == 0.0) {
-            return list;
-        }
-        return list;
+        return filList;
     }
 
     public static void main(String[] args) {
@@ -47,6 +60,9 @@ public class Jmart {
         }
     }
 
+    public static boolean paymentTimekeeper(Payment payment){
+        return false;
+    }
 /*    public static void main(String[] args) {
         try{
             List<Product> list = read("/Users/Intel/Documents/Segala siksa duniawi/main/jmart/src");
