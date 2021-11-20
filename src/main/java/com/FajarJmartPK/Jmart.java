@@ -52,7 +52,9 @@ public class Jmart {
         return false;
     }
     public static void main(String[] args) {
+        jmart.goldenSample.dbjson.JsonDBEngine.Run(Jmart.class);
         SpringApplication.run(Jmart.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> jmart.goldenSample.dbjson.JsonDBEngine.join()));
         /*try {
             JsonTable<Payment> table = new JsonTable<>(Payment.class, "/Users/Intel/Documents/Segala siksa duniawi/main/jmart/src");
             ObjectPoolThread<Payment> paymentPool = new ObjectPoolThread<>("Thread-PP", Jmart::paymentTimekeeper);
