@@ -4,6 +4,8 @@ import com.FajarJmartPK.Algorithm;
 import com.FajarJmartPK.JsonTable;
 import org.springframework.web.bind.annotation.*;
 import com.FajarJmartPK.Account;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.regex.Pattern;
 
 @RestController
@@ -15,12 +17,12 @@ import java.util.regex.Pattern;
         public static final Pattern REGEX_PATTERN_EMAIL = null;
         public static final Pattern REGEX_PATTERN_PASSWORD = null;
 
-        @jmart.goldenSample.dbjson.JsonAutowired(value=Account.class, filepath="data/account.json")
+        @jmart.goldenSample.dbjson.JsonAutowired(value = Account.class, filepath = "data/account.json")
         public static JsonTable<Account> accountTable;
         Account acc = Algorithm.<Account>find(accountTable, obj -> obj.id == id);
-        if(acc == null || acc.store!=null){
-            return null;
-        }
+            if(acc == null || acc.store!=null){
+                return null;
+            }
 
         @Override
         public JsonTable<Account> getJsonTable() {
@@ -34,6 +36,22 @@ import java.util.regex.Pattern;
                         @RequestParam String password
                 )
         {
+            String checkPass = null;
+            try {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                md.update(password.getBytes());
+                byte[] bytes = md.digest();
+                StringBuilder sb = new StringBuilder();
+                for(int i = 0; i < bytes.length; i++){
+                    sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+                }
+                checkPass = sb.toString();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+            if (checkPass.equals(Account.password)) {
+                return login(email, password);
+            }
             return null;
         }
 
@@ -45,7 +63,20 @@ import java.util.regex.Pattern;
                         @RequestParam String password
                 )
         {
-            return new Account(name, email, password, 0);
+            String generatedPass = null;
+            try {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                md.update(password.getBytes());
+                byte[] bytes = md.digest();
+                StringBuilder sb = new StringBuilder();
+                for(int i = 0; i < bytes.length; i++){
+                    sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+                }
+                generatedPass = sb.toString();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+            return new Account(name, email, generatedPass, 0);
         }
 
         @PostMapping("/{id}/registerStore")

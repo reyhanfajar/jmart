@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 public class PaymentController implements BasicGetController<Payment>{
     public static final long DELIVERED_LIMIT_MS = 100;
     public static final long ON_DELIVERY_LIMIT_MS = 100;
@@ -17,19 +15,6 @@ public class PaymentController implements BasicGetController<Payment>{
     public static final long WAITING_CONF_LIMIT_MS = 100;
     public static JsonTable<Payment> paymentTable;
     public static ObjectPoolThread<Payment> poolThread;
-
-    @PostMapping("/create")
-    Payment create
-            (
-                    @RequestParam int buyerId,
-                    @RequestParam int productId,
-                    @RequestParam int productCount,
-                    @RequestParam String shipmentAddress,
-                    @RequestParam byte shipmentPlan
-            )
-    {
-        return null;
-    }
 
 
     @PostMapping("/{id}/accept")
@@ -48,6 +33,19 @@ public class PaymentController implements BasicGetController<Payment>{
             )
     {
         return false;
+    }
+
+    @PostMapping("/create")
+    Payment create
+            (
+                    @RequestParam int buyerId,
+                    @RequestParam int productId,
+                    @RequestParam int productCount,
+                    @RequestParam String shipmentAddress,
+                    @RequestParam byte shipmentPlan
+            )
+    {
+        return null;
     }
 
     @PostMapping("/{id}/submit")
