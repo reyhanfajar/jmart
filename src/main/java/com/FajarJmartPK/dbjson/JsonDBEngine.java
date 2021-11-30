@@ -1,4 +1,4 @@
-package jmart.goldenSample.dbjson;
+package com.FajarJmartPK.dbjson;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 import javax.annotation.PreDestroy;
 
+import com.FajarJmartPK.JsonTable;
+import com.FajarJmartPK.Serializable;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AnnotationTypeFilter;

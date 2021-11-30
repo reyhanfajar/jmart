@@ -1,4 +1,7 @@
-package jmart.goldenSample.dbjson;
+package com.FajarJmartPK.dbjson;
+
+import com.FajarJmartPK.JsonTable;
+import com.FajarJmartPK.dbjson.JsonDBEngine;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

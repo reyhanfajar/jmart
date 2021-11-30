@@ -18,6 +18,16 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+jar {
+	manifest {
+		attributes "Main-Class": "Jmart"
+	}
+}
+
+springBoot {
+	mainClass = "com.solrdemo.SolrDemoApplication"
+}
+
 test {
 	useJUnitPlatform()
 }

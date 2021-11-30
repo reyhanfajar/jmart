@@ -2,8 +2,6 @@ package com.FajarJmartPK.controller;
 
 import com.FajarJmartPK.Coupon;
 import com.FajarJmartPK.JsonTable;
-import com.FajarJmartPK.Product;
-import com.FajarJmartPK.Serializable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 public class CouponController implements BasicGetController{
-    @jmart.goldenSample.dbjson.JsonAutowired(value = Coupon.class, filepath = "data/account.json")
+    @com.FajarJmartPK.dbjson.JsonAutowired(value = Coupon.class, filepath = "data/account.json")
     public static JsonTable<Coupon> couponTable;
 
     @GetMapping("/{id}/isUsed")

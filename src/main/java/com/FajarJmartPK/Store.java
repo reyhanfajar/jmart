@@ -11,11 +11,10 @@ public class Store extends Serializable {
     public String phoneNumber;
     public double balance;
 
-    public Store(String name, String address, String phoneNumber, double balance){
+    public Store(String name, String address, String phoneNumber){
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.balance = balance;
     }
 
     public boolean validate(){

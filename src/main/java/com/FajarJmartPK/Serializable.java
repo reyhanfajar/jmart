@@ -3,39 +3,38 @@ package com.FajarJmartPK;
 import java.util.HashMap;
 
 public class Serializable implements Comparable<Serializable> {
+    private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
     public final int id;
-    private static HashMap<Class<?>, Integer> mapCounter = new HashMap<Class<?>, Integer>();;
 
-    public int compareTo(Serializable other) {
-        return Integer.compare(this.id, other.id);
-    }
-
-    public boolean equals(Object other){
-        if(other instanceof Serializable){
-            return equals(other);
-        }
-        else{
-            return false;
-        }
-    }
-
-    public boolean equals(Serializable other){
-        return this.id == other.id;
-    }
-
-    public static <T> Integer getClosingId(Class <T>clazz){
-        return getClosingId(clazz);
-    }
-
-    public static Integer setClosingId(Class<Serializable>clazz, int id){
-        return setClosingId(clazz, id);
-    }
-
-    protected Serializable() {
+    protected Serializable()
+    {
         Integer counter = mapCounter.get(getClass());
         counter = counter == null ? 0 : counter + 1;
         mapCounter.put(getClass(), counter);
         this.id = counter;
+    }
+
+    public static <T extends Serializable> Integer setClosingId(Class<T> clazz, int id)
+    {
+        return mapCounter.put(clazz, id);
+    }
+    public static <T extends Serializable> Integer getClosingId(Class<T> clazz)
+    {
+        return mapCounter.get(clazz);
+    }
+    public boolean equals(Object other)
+    {
+        return other instanceof Serializable && ((Serializable) other).id == id;
+    }
+    public boolean equals(Serializable other)
+    {
+        return other.id == id;
+    }
+
+    @Override
+    public int compareTo(Serializable other)
+    {
+        return Integer.compare(this.id, other.id);
     }
 
     public static void main(String[] args) {

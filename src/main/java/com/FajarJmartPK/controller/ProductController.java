@@ -1,6 +1,5 @@
 package com.FajarJmartPK.controller;
 
-import ch.qos.logback.classic.helpers.MDCInsertingServletFilter;
 import com.FajarJmartPK.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 public class ProductController implements BasicGetController {
-    @jmart.goldenSample.dbjson.JsonAutowired(value = Product.class, filepath = "data/account.json")
+    @com.FajarJmartPK.dbjson.JsonAutowired(value = Product.class, filepath = "data/account.json")
     public static JsonTable<Product> productTable;
 
     @PostMapping(" /create")
