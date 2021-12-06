@@ -61,12 +61,11 @@ public class Shipment{
     }
 
     public static boolean isDuration(byte Object, Plan reference){
-        byte flags=0;
-    //    for(byte i=0; i<args.length; i++){
-    //        flags|=args[i].bit;
-    //    }
-    //    this.bit = flags;
-        return false;
+        if((reference.bit & Object) != 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public static class Plan{
