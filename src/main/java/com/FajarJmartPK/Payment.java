@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Payment extends Invoice
 {
-    ArrayList<Record> history;
+    public ArrayList<Record> history = new ArrayList<Record>();
     public Shipment shipment;
     public int productCount;
 
@@ -15,11 +15,11 @@ public class Payment extends Invoice
         this.shipment = shipment;
     }
 
-    public double getTotalPay(Product Product){
-        return 0;
+    public double getTotalPay(Product product){
+        return (product.price-((product.discount/100)*product.price)*productCount) + shipment.cost;
     }
 
-    public class Record{
+    public static class Record{
         public final Date date = new Date();
         public String message;
         public Status status;

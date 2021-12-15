@@ -4,9 +4,9 @@ import java.util.regex.Pattern;
 
 public class Account extends Serializable {
 
-    public static final String REGEX_EMAIL = "(?!.\\.{2,})(?!\\.)[0-9A-z.&~*]+@\\w+([.-]?\\w+)+$";
+    public static final String REGEX_EMAIL = "^(?!.\\.{2,})(?!\\.)[0-9A-z.&~*]+@\\w+([.-]?\\w+)+$";
     public static final String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$";
-    public String name;
+    public String name = "Reyhan";
     public String email;
     public String password;
     public Store store;
