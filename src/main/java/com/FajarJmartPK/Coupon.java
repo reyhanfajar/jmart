@@ -1,7 +1,14 @@
 package com.FajarJmartPK;
 
-public class Coupon
-{
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 11 - 20 - 2021
+ *
+ */
+
+public class Coupon extends Serializable {
     public final String name;
     public final int code;
     public final double cut;
@@ -13,7 +20,8 @@ public class Coupon
         DISCOUNT,
         REBATE
     }
-    
+
+    //coupon ctor
     public Coupon(String name, int code, Type type, double cut, double minimum){
         this.name = name;
         this.code = code;

@@ -3,6 +3,14 @@ package com.FajarJmartPK;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 11 - 20 - 2021
+ *
+ */
+
 public abstract class Invoice extends Serializable {
 
     Date myDate = new Date();
@@ -13,7 +21,8 @@ public abstract class Invoice extends Serializable {
     public final String date = mdyFormat.format(myDate);
     public int productId;
     public Rating rating;
-    
+
+    //status enum
     public static enum Status{
         WAITING_CONFIRMATION,
         CANCELLED,
@@ -23,14 +32,16 @@ public abstract class Invoice extends Serializable {
         FINISHED,
         FAILED;
     }
-    
+
+    //rating enum
     public enum Rating{
         NONE,
         BAD,
         NEUTRAL,
         GOOD;
     }
-    
+
+    //invoice ctor
     protected Invoice(int buyerId, int productId){
         this.buyerId = buyerId;
         this.productId = productId;

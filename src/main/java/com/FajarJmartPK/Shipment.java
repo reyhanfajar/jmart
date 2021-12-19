@@ -4,6 +4,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 6 - 2021
+ *
+ */
+
 public class Shipment{
 
     public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("E MMMMM dd yyyy");

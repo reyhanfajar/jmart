@@ -4,6 +4,14 @@ import com.FajarJmartPK.*;
 import com.FajarJmartPK.dbjson.JsonAutowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 15 - 2021
+ *
+ */
+
 @RestController
 @RequestMapping("/payment")
 public class PaymentController implements BasicGetController<Payment>{
@@ -16,14 +24,6 @@ public class PaymentController implements BasicGetController<Payment>{
 
     @JsonAutowired(value = Payment.class, filepath = "Users/Intel/Documents/Segala siksa duniawi/main/jmart/src.payment.json")
     public static JsonTable<Payment> paymentTable;
-
-    /*
-    static
-    {
-        poolThread = new ObjectPoolThread<Payment>("Thread-PP", PaymentController::timekeeper);
-        poolThread.start();
-    }
-*/
 
     public JsonTable<Payment> getJsonTable()
     {
@@ -79,8 +79,7 @@ public class PaymentController implements BasicGetController<Payment>{
         Account acc = Algorithm.<Account>find(AccountController.accountTable, e->e.id == buyerId);
         Product prod = Algorithm.<Product>find(ProductController.productTable, e->e.id == productId);
 
-        if(acc != null && prod != null)
-        {
+        if(acc != null && prod != null) {
             Payment payment = new Payment(buyerId, productId, productCount, new Shipment(shipmentAddress,0,shipmentPlan, null));
             double total = payment.getTotalPay(prod);
 
@@ -91,9 +90,7 @@ public class PaymentController implements BasicGetController<Payment>{
                 paymentTable.add(payment);
                 poolThread.add(payment);
                 return payment;
-
-            }
-            else {
+            } else {
                 return null;
             }
         }

@@ -10,7 +10,10 @@ import com.FajarJmartPK.Account;
 import java.util.regex.Pattern;
 
 /**
- *
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 15 - 2021
  *
  */
 
@@ -49,14 +52,11 @@ class AccountController implements BasicGetController<Account>
                     @RequestParam String password
             )
     {
-        if
-        (
-                name.isBlank() ||
-                        !REGEX_PATTERN_EMAIL.matcher(email).matches() ||
-                        !REGEX_PATTERN_PASSWORD.matcher(password).matches() ||
-                        Algorithm.<Account>exists(accountTable, obj -> obj.email.equals(email))
-        )
-        { return null; }
+        if (name.isBlank() || !REGEX_PATTERN_EMAIL.matcher(email).matches() ||
+                !REGEX_PATTERN_PASSWORD.matcher(password).matches() ||
+                Algorithm.<Account>exists(accountTable, obj -> obj.email.equals(email))) {
+            return null;
+        }
 
         Account acc = new Account(name, email, password, 0);
         accountTable.add(acc);

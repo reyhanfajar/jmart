@@ -1,5 +1,12 @@
 package com.FajarJmartPK;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 11 - 20 - 2021
+ *
+ */
 
 public class Product extends Serializable
 {
@@ -13,6 +20,7 @@ public class Product extends Serializable
     public ProductCategory category;
     public byte shipmentPlans;
 
+    //Product ctor
     public Product(int accountId, String name, int weight, boolean conditionUsed, double price, double discount,
     ProductCategory category, byte shipmentPlans){
         this.accountId = accountId;

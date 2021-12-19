@@ -2,6 +2,14 @@ package com.FajarJmartPK;
 
 import java.util.regex.Pattern;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 1 - 2021
+ *
+ */
+
 public class Store extends Serializable {
 
     public static String REGEX_NAME = "^\\w{4,20}$";
@@ -17,6 +25,7 @@ public class Store extends Serializable {
         this.phoneNumber = phoneNumber;
     }
 
+    //validate method to check whether name and or phone number matches regex
     public boolean validate(){
         Pattern pattern = Pattern.compile(REGEX_PHONE);
         Pattern pattern2 = Pattern.compile(REGEX_NAME);

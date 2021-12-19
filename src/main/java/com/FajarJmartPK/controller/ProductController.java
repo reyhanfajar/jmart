@@ -8,6 +8,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 17 - 2021
+ *
+ */
+
 public class ProductController implements BasicGetController {
     @com.FajarJmartPK.dbjson.JsonAutowired(value = Product.class, filepath = "data/account.json")
     public static JsonTable<Product> productTable;

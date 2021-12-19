@@ -7,6 +7,14 @@ import java.util.Vector;
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 1 - 2021
+ *
+ */
+
 public class JsonTable<T> extends Vector<T>
 {
     private static final Gson gson = new Gson();
@@ -26,14 +34,17 @@ public class JsonTable<T> extends Vector<T>
         catch (FileNotFoundException e) {}
     }
 
+    //write Json
     public void writeJson() throws IOException
     {
         writeJson(this, this.filepath);
     }
 
+    //2nd step write Json with known filepath
     public static void writeJson(Object object, String filepath) throws IOException
     {
         File file = new File(filepath);
+        //check if file exist or not. Create new file if it doesn't exist.
         if (!file.exists())
         {
             File parent = file.getParentFile();
@@ -46,6 +57,7 @@ public class JsonTable<T> extends Vector<T>
         writer.close();
     }
 
+    //read Json
     public static <T> T readJson(Class<T> clazz, String filepath) throws FileNotFoundException
     {
         final JsonReader reader = new JsonReader(new FileReader(filepath));

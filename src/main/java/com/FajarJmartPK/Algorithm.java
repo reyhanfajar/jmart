@@ -2,6 +2,14 @@ package com.FajarJmartPK;
 
 import java.util.*;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 1 - 2021
+ *
+ */
+
 public class Algorithm
 {
     private Algorithm() {}

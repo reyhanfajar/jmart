@@ -12,6 +12,14 @@ import com.google.gson.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.SpringApplication;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 15 - 2021
+ *
+ */
+
 @SpringBootApplication
 public class Jmart {
     public static long DELIVERED_LIMIT_MS = 100;

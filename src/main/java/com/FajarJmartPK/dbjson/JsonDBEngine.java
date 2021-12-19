@@ -19,6 +19,7 @@ import org.springframework.core.type.filter.AnnotationTypeFilter;
  * @author Netlab Team
  * @version 0.1
  */
+
 @SuppressWarnings("unchecked")
 public class JsonDBEngine
 {	
@@ -38,6 +39,7 @@ public class JsonDBEngine
 	  * which contain {@link JsonAutowired}. Achieved by:
 	  * {@link ClassPathScanningCandidateComponentProvider#findCandidateComponents(String)}
 	  */
+
     public static void Run(Class<?> sourceClass)
     {
     	if (autosaveThread != null)

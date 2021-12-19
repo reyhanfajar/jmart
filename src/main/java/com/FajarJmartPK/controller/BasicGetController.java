@@ -7,6 +7,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 1 - 2021
+ *
+ */
+
 public interface BasicGetController <T extends Serializable>{
     JsonTable<T> getJsonTable();
 

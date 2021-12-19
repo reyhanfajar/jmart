@@ -1,15 +1,22 @@
 package com.FajarJmartPK.controller;
 
+import com.FajarJmartPK.Algorithm;
 import com.FajarJmartPK.Coupon;
 import com.FajarJmartPK.JsonTable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public class CouponController implements BasicGetController{
-    @com.FajarJmartPK.dbjson.JsonAutowired(value = Coupon.class, filepath = "data/account.json")
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 1 - 2021
+ *
+ */
+
+@RestController
+public class CouponController implements BasicGetController<Coupon>{
     public static JsonTable<Coupon> couponTable;
 
     @GetMapping("/{id}/isUsed")
@@ -18,6 +25,12 @@ public class CouponController implements BasicGetController{
                     @PathVariable int id
             )
     {
+        for(Coupon each : couponTable)
+        {
+            if (each.id == id) {
+                return each.isUsed();
+            }
+        }
         return false;
     }
 
@@ -39,7 +52,7 @@ public class CouponController implements BasicGetController{
                     @RequestParam int pageSize
             )
     {
-        return null;
+        return Algorithm.paginate(getJsonTable(), page, pageSize, pred -> pred.isUsed() == false);
     }
 
     @Override

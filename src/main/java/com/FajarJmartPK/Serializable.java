@@ -2,6 +2,14 @@ package com.FajarJmartPK;
 
 import java.util.HashMap;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 12 - 15 - 2021
+ *
+ */
+
 public class Serializable implements Comparable<Serializable> {
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
     public final int id;
@@ -34,6 +42,7 @@ public class Serializable implements Comparable<Serializable> {
         return Integer.compare(this.id, other.id);
     }
 
+    //Serializable.java test
     public static void main(String[] args) {
         System.out.println("account id : " + new Account(null, null, null, 0).id);
         System.out.println("account id : " + new Account(null, null, null, 0).id);

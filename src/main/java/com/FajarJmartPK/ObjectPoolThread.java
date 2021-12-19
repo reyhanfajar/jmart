@@ -3,11 +3,21 @@ package com.FajarJmartPK;
 import java.util.Vector;
 import java.util.function.Function;
 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 11 - 20 - 2021
+ *
+ */
+
+//class for multithreading
 public class ObjectPoolThread<T> extends Thread{
     private boolean exitSignal;
     private Vector<T> objectPool;
     private Function<T, Boolean> routine;
 
+    //ObjectPoolThread ctor
     public ObjectPoolThread (String name, Function<T, Boolean> routine){
         super(name);
         this.routine = routine;

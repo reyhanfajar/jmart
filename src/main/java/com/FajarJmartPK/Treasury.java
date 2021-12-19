@@ -1,6 +1,12 @@
 package com.FajarJmartPK;
 
- 
+/**
+ * FajarJmartPK
+ * AccountController.java
+ * @author Reyhan Fajar Pamenang
+ * @version : 11 - 20 - 2021
+ *
+ */
 
 public class Treasury
 {
@@ -12,6 +18,7 @@ public class Treasury
         return getDiscountedPrice() + getAdminFee();
     }
 
+    //admin fee of purchasing item
     public double getAdminFee(){
         double discountedPrice = getDiscountedPrice();
         if(discountedPrice<BOTTOM_PRICE){
@@ -21,9 +28,11 @@ public class Treasury
             return (COMMISSION_MULTIPLIER*discountedPrice);
         }
     }
+
     public double discount;
     public double price;
 
+    //discounted price calculation
     private double getDiscountedPrice(){
         if(discount>=100.0){
             return 0.0;
