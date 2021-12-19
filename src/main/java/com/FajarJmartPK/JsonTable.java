@@ -9,7 +9,8 @@ import com.google.gson.stream.JsonReader;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ *
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 1 - 2021
  *
@@ -20,6 +21,12 @@ public class JsonTable<T> extends Vector<T>
     private static final Gson gson = new Gson();
     public final String filepath;
 
+    /**
+     *
+     * @param clazz is variable to Class<T>
+     * @param filepath for Json table
+     * @throws IOException
+     */
     @SuppressWarnings("unchecked")
     public JsonTable(Class<T> clazz, String filepath) throws IOException
     {
@@ -34,12 +41,22 @@ public class JsonTable<T> extends Vector<T>
         catch (FileNotFoundException e) {}
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     //write Json
     public void writeJson() throws IOException
     {
         writeJson(this, this.filepath);
     }
 
+    /**
+     *
+     * @param object is variable of Object
+     * @param filepath of Json
+     * @throws IOException
+     */
     //2nd step write Json with known filepath
     public static void writeJson(Object object, String filepath) throws IOException
     {
@@ -57,6 +74,14 @@ public class JsonTable<T> extends Vector<T>
         writer.close();
     }
 
+    /**
+     *
+     * @param clazz is variable to Class<T>
+     * @param filepath of Json
+     * @param <T> a generic
+     * @return
+     * @throws FileNotFoundException
+     */
     //read Json
     public static <T> T readJson(Class<T> clazz, String filepath) throws FileNotFoundException
     {

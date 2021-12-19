@@ -9,7 +9,8 @@ import java.util.List;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * This class is required to controlling coupon
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 1 - 2021
  *
@@ -19,6 +20,11 @@ import java.util.List;
 public class CouponController implements BasicGetController<Coupon>{
     public static JsonTable<Coupon> couponTable;
 
+    /**
+     *
+     * @param id
+     * @return is the coupon being used or not
+     */
     @GetMapping("/{id}/isUsed")
     boolean isUsed
             (
@@ -34,6 +40,13 @@ public class CouponController implements BasicGetController<Coupon>{
         return false;
     }
 
+    /**
+     *
+     * @param id
+     * @param price of the product
+     * @param discount of the coupon
+     * @return
+     */
     @GetMapping("/{id}/canApply")
     boolean canApply
             (
@@ -45,6 +58,12 @@ public class CouponController implements BasicGetController<Coupon>{
         return false;
     }
 
+    /**
+     *
+     * @param page
+     * @param pageSize
+     * @return
+     */
     @GetMapping("/getAvailable")
     List<Coupon> getAvailable
             (
@@ -55,6 +74,10 @@ public class CouponController implements BasicGetController<Coupon>{
         return Algorithm.paginate(getJsonTable(), page, pageSize, pred -> pred.isUsed() == false);
     }
 
+    /**
+     *
+     * @return couponTable
+     */
     @Override
     public JsonTable<Coupon> getJsonTable() {
         return couponTable;

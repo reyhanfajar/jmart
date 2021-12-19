@@ -4,7 +4,8 @@ import java.util.HashMap;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * Class that serializing thing (of course)
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 15 - 2021
  *

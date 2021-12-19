@@ -10,7 +10,8 @@ import java.util.List;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * this code are used in controlling product
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 17 - 2021
  *
@@ -20,6 +21,18 @@ public class ProductController implements BasicGetController {
     @com.FajarJmartPK.dbjson.JsonAutowired(value = Product.class, filepath = "data/account.json")
     public static JsonTable<Product> productTable;
 
+    /**
+     *
+     * @param accountId id number
+     * @param name product name
+     * @param weight product weight
+     * @param conditionUsed product state
+     * @param price product price
+     * @param discount from coupon
+     * @param category product category
+     * @param shipmentPlans product delivery option
+     * @return the product data into Product class instance variable
+     */
     @PostMapping(" /create")
         Product create
             (
@@ -36,6 +49,13 @@ public class ProductController implements BasicGetController {
         return new Product(accountId, name, weight, conditionUsed, price, discount, category, shipmentPlans);
     }
 
+    /**
+     *
+     * @param id store id
+     * @param page how many page
+     * @param pageSize how many product are contained in each page
+     * @return
+     */
     @GetMapping("/{id}/store")
         List<Product> getProductByStore
             (
@@ -47,6 +67,17 @@ public class ProductController implements BasicGetController {
         return null;
     }
 
+    /**
+     *
+     * @param page how many page after filtered
+     * @param pageSize how many product that already filtered in each page
+     * @param accountId id account
+     * @param search search parameter, to be filtered then
+     * @param minPrice min price of filtered
+     * @param maxPrice max price of filtered
+     * @param category product category
+     * @return after product filtered
+     */
     @GetMapping("/getFiltered")
         List<Product> getProductFiltered
             (
@@ -62,6 +93,10 @@ public class ProductController implements BasicGetController {
         return null;
     }
 
+    /**
+     *
+     * @return get product table
+     */
     @Override
     public JsonTable<Product> getJsonTable(){
         return productTable;

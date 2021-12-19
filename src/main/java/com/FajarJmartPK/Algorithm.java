@@ -4,7 +4,8 @@ import java.util.*;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * for many algorithm that happen in the app, mostly declared and done here
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 1 - 2021
  *

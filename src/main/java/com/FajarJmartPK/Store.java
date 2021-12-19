@@ -4,7 +4,8 @@ import java.util.regex.Pattern;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * Class that holds information of Store
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 1 - 2021
  *
@@ -19,13 +20,23 @@ public class Store extends Serializable {
     public String phoneNumber;
     public double balance;
 
-    public Store(String name, String address, String phoneNumber){
+    /**
+     *
+     * @param name store name
+     * @param address store address
+     * @param phoneNumber store phone number
+     * @param balance store balance
+     */
+    public Store(String name, String address, String phoneNumber, double balance){
         this.name = name;
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
 
-    //validate method to check whether name and or phone number matches regex
+    /**
+     *
+     * @return whether name and or phone number matches regex
+     */
     public boolean validate(){
         Pattern pattern = Pattern.compile(REGEX_PHONE);
         Pattern pattern2 = Pattern.compile(REGEX_NAME);

@@ -5,7 +5,8 @@ import java.text.SimpleDateFormat;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * This class is used for invoice of transaction
  * @author Reyhan Fajar Pamenang
  * @version : 11 - 20 - 2021
  *
@@ -22,7 +23,9 @@ public abstract class Invoice extends Serializable {
     public int productId;
     public Rating rating;
 
-    //status enum
+    /**
+     * enum status
+     */
     public static enum Status{
         WAITING_CONFIRMATION,
         CANCELLED,
@@ -33,7 +36,9 @@ public abstract class Invoice extends Serializable {
         FAILED;
     }
 
-    //rating enum
+    /**
+     * enum rating
+     */
     public enum Rating{
         NONE,
         BAD,
@@ -41,12 +46,19 @@ public abstract class Invoice extends Serializable {
         GOOD;
     }
 
-    //invoice ctor
+    /**
+     *
+     * @param buyerId id of buyer
+     * @param productId id of the product
+     */
     protected Invoice(int buyerId, int productId){
         this.buyerId = buyerId;
         this.productId = productId;
     }
 
+    /**
+     * Record
+     */
     public class Record{
         public Date date;
         public String message;

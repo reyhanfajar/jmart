@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * this class is essential to control over payment
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 15 - 2021
  *
@@ -25,11 +26,20 @@ public class PaymentController implements BasicGetController<Payment>{
     @JsonAutowired(value = Payment.class, filepath = "Users/Intel/Documents/Segala siksa duniawi/main/jmart/src.payment.json")
     public static JsonTable<Payment> paymentTable;
 
+    /**
+     *
+     * @return payment table
+     */
     public JsonTable<Payment> getJsonTable()
     {
         return paymentTable;
     }
 
+    /**
+     * to check if the product were intact with delivery time
+     * @param payment of Payment class
+     * @return is the delivery on time or not
+     */
     protected static boolean timekeeper(Payment payment)
     {
         Payment.Record record = payment.history.get(payment.history.size()-1);

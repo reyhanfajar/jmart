@@ -4,7 +4,8 @@ import java.util.regex.Pattern;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * this class is handling over Account
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 16 - 2021
  *
@@ -20,7 +21,13 @@ public class Account extends Serializable {
     public Store store;
     public double balance;
 
-    //Account ctor
+    /**
+     *
+     * @param name account name
+     * @param email account email
+     * @param password account password
+     * @param balance account balance
+     */
     public Account(String name, String email, String password, double balance){
         this.name = name;
         this.email = email;
@@ -28,7 +35,10 @@ public class Account extends Serializable {
         this.balance = balance;
     }
 
-    //validate method to check whether email and or password matches regex
+    /**
+     *
+     * @return if regex matches with the account data when user input them
+     */
     public boolean validate(){
         Pattern pattern = Pattern.compile(REGEX_EMAIL);
         Pattern pattern2 = Pattern.compile(REGEX_PASSWORD);
@@ -37,6 +47,10 @@ public class Account extends Serializable {
         return (matches) && (matches2);
     }
 
+    /**
+     *
+     * @return String
+     */
     public String toString(){
         return "name: " + this.name + "\nemail: " + this.email + "\npassword :"
         + this.password;

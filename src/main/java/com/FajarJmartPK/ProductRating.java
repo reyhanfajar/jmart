@@ -2,7 +2,8 @@ package com.FajarJmartPK;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * Class that values the rating of a product
  * @author Reyhan Fajar Pamenang
  * @version : 11 - 20 - 2021
  *
@@ -25,7 +26,10 @@ public class ProductRating
         count++;
     }
 
-    //average of rating
+    /**
+     *
+     * @return average rating of the product
+     */
     public double getAverage(){
         if(count==0){
             return 0.0;

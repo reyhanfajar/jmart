@@ -5,7 +5,8 @@ import java.util.function.Function;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * multithreading class
  * @author Reyhan Fajar Pamenang
  * @version : 11 - 20 - 2021
  *

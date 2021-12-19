@@ -2,7 +2,8 @@ package com.FajarJmartPK;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * Class that responsible for top up
  * @author Reyhan Fajar Pamenang
  * @version : 11 - 20 - 2021
  *
@@ -12,7 +13,12 @@ public class PhoneTopUp extends Invoice{
     public String phoneNumber;
     public Status status;
 
-    //PhoneTopUp ctor
+    /**
+     *
+     * @param buyerId id buyer
+     * @param productId product id
+     * @param phoneNumber buyer phone number
+     */
     public PhoneTopUp(int buyerId, int productId, String phoneNumber) {
         super(buyerId, productId); //from Invoice
         this.phoneNumber = phoneNumber;

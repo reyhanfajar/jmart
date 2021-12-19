@@ -9,7 +9,8 @@ import java.util.List;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * this file is responsible to control paginate
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 1 - 2021
  *
@@ -18,6 +19,12 @@ import java.util.List;
 public interface BasicGetController <T extends Serializable>{
     JsonTable<T> getJsonTable();
 
+    /**
+     *
+     * @param page page of a list
+     * @param pageSize how many page are there
+     * @return paginated list
+     */
     @RequestMapping(value="/page", method= RequestMethod.GET)
     public default List<T> getPage
             (
@@ -29,6 +36,11 @@ public interface BasicGetController <T extends Serializable>{
         return Algorithm.<T>paginate(table, page, pageSize, o -> true);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
     public default T getById(@PathVariable int id)
     {

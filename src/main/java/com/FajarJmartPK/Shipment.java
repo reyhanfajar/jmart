@@ -6,7 +6,8 @@ import java.util.Calendar;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * Class that handling over shipment of the product
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 6 - 2021
  *
@@ -27,6 +28,13 @@ public class Shipment{
     public byte plan;
     public String receipt;
 
+    /**
+     *
+     * @param address of destination
+     * @param cost of transportation
+     * @param plan what shipment option that buyer take
+     * @param receipt receipt of shipping
+     */
     public Shipment(String address, int cost, byte plan, String receipt){
         this.address = address;
         this.cost = cost;
@@ -34,6 +42,11 @@ public class Shipment{
         this.receipt = receipt;
     }
 
+    /**
+     *
+     * @param reference of date
+     * @return estimation time of arrival
+     */
     public String getEstimatedArrival(Date reference){
         Calendar calendar = Calendar.getInstance();
             if(this.plan==1<<0|| this.plan==1<<1){
@@ -59,6 +72,11 @@ public class Shipment{
             }
     }
 
+    /**
+     *
+     * @param reference of shipment plan
+     * @return if the plan equal to the bit of shipment
+     */
     public boolean isDuration(Plan reference){
         if((plan&reference.bit)!=0){
             return true;
@@ -68,6 +86,12 @@ public class Shipment{
         }
     }
 
+    /**
+     *
+     * @param Object byte
+     * @param reference of shipment plan
+     * @return
+     */
     public static boolean isDuration(byte Object, Plan reference){
         if((reference.bit & Object) != 0){
             return true;

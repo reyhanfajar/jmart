@@ -2,7 +2,8 @@ package com.FajarJmartPK;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * This coupon class is essential for coupon handling
  * @author Reyhan Fajar Pamenang
  * @version : 11 - 20 - 2021
  *
@@ -21,7 +22,14 @@ public class Coupon extends Serializable {
         REBATE
     }
 
-    //coupon ctor
+    /**
+     *
+     * @param name coupon name
+     * @param code code of coupon
+     * @param type coupon type
+     * @param cut
+     * @param minimum requirement to use the code
+     */
     public Coupon(String name, int code, Type type, double cut, double minimum){
         this.name = name;
         this.code = code;
@@ -30,7 +38,10 @@ public class Coupon extends Serializable {
         this.minimum = minimum;
         this.used = false;
     }
-    
+
+    /**
+     * @return if coupon are used
+     */
     public boolean isUsed(){
         return used;
     }

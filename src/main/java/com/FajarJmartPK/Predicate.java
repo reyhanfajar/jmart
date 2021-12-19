@@ -2,7 +2,8 @@ package com.FajarJmartPK;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * Predicate Interface
  * @author Reyhan Fajar Pamenang
  * @version : 11 - 20 - 2021
  *

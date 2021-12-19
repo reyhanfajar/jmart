@@ -14,7 +14,8 @@ import org.springframework.boot.SpringApplication;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * The main class of FajarJmartPK package back-end
  * @author Reyhan Fajar Pamenang
  * @version : 12 - 15 - 2021
  *

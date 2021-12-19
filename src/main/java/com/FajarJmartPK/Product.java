@@ -20,7 +20,17 @@ public class Product extends Serializable
     public ProductCategory category;
     public byte shipmentPlans;
 
-    //Product ctor
+    /**
+     *
+     * @param accountId id account
+     * @param name product name
+     * @param weight product weight
+     * @param conditionUsed product status
+     * @param price product price
+     * @param discount product discount
+     * @param category product category
+     * @param shipmentPlans which way buyer want the product to be sent
+     */
     public Product(int accountId, String name, int weight, boolean conditionUsed, double price, double discount,
     ProductCategory category, byte shipmentPlans){
         this.accountId = accountId;

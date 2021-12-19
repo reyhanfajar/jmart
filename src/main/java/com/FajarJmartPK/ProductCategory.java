@@ -2,7 +2,9 @@ package com.FajarJmartPK;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * Product Category enumeration
+ * contains list of product category
  * @author Reyhan Fajar Pamenang
  * @version : 11 - 20 - 2021
  *

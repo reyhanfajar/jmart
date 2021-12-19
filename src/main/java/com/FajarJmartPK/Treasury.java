@@ -2,7 +2,8 @@ package com.FajarJmartPK;
 
 /**
  * FajarJmartPK
- * AccountController.java
+ *
+ * Class that calculates fee which will be added to the payment
  * @author Reyhan Fajar Pamenang
  * @version : 11 - 20 - 2021
  *
@@ -14,11 +15,18 @@ public class Treasury
     public static final double BOTTOM_PRICE = 20000.0;
     public static final double BOTTOM_FEE = 1000.0;
 
+    /**
+     *
+     * @return price after added by fee and deducted with discount
+     */
     public double getAdjustedPrice(){
         return getDiscountedPrice() + getAdminFee();
     }
 
-    //admin fee of purchasing item
+    /**
+     *
+     * @return admin fee of payment
+     */
     public double getAdminFee(){
         double discountedPrice = getDiscountedPrice();
         if(discountedPrice<BOTTOM_PRICE){
@@ -32,7 +40,10 @@ public class Treasury
     public double discount;
     public double price;
 
-    //discounted price calculation
+    /**
+     *
+     * @return discounted price of product
+     */
     private double getDiscountedPrice(){
         if(discount>=100.0){
             return 0.0;
